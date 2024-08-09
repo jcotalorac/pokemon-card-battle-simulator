@@ -21,12 +21,19 @@
         <java.version>17</java.version>
         <maven-compiler-plugin-version>3.13.0</maven-compiler-plugin-version>
         <spring-boot-maven-plugin.version>3.1.5</spring-boot-maven-plugin.version>
+        <lombok.version>1.18.34</lombok.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <optional>true</optional>
         </dependency>
     </dependencies>
 
@@ -55,4 +62,11 @@
             </plugin>
         </plugins>
     </build>
+    <repositories>
+        <repository>
+            <id>maven_central</id>
+            <name>Maven Central</name>
+            <url>https://repo.maven.apache.org/maven2/</url>
+        </repository>
+    </repositories>
 </project>
