@@ -7,4 +7,6 @@
     <groupId>org.pokemon</groupId>
     <artifactId>battle-simulator</artifactId>
     <version>1.0.0-SNAPSHOT</version>
+    <name>Battle pokemon simulator</name>
+    <description>Application to simulate pokemon battles</description>
 </project>
