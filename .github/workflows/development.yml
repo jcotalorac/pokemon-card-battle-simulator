@@ -20,4 +20,4 @@ jobs:
           distribution: 'adopt'
 
       - name: Build project with Maven
-        run: mvn -B package --file pom.xml
+        run: mvn -B test package --file pom.xml
