@@ -2,12 +2,9 @@ package org.pokemon.controllers;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.pokemon.controllers.dto.BattlePlayer;
-import org.pokemon.controllers.dto.BattleResponse;
-import org.pokemon.controllers.dto.PokemonCardResponse;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.pokemon.controllers.dto.*;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -44,5 +41,12 @@ public class BattleController {
         battleResponse.setComputerPlayer(computerPlayer);
 
         return battleResponse;
+    }
+
+
+    @PostMapping("/fight")
+    public ResponseEntity<FightResponse> fightWithCard(@RequestBody FightRequest fightRequest) {
+        log.debug("Request body: {}", fightRequest);
+        return ResponseEntity.ok(new FightResponse());
     }
 }

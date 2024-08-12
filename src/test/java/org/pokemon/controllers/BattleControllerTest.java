@@ -4,13 +4,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
-import org.pokemon.controllers.dto.BattlePlayer;
-import org.pokemon.controllers.dto.BattleResponse;
-import org.pokemon.controllers.dto.PokemonCardResponse;
+import org.pokemon.controllers.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.json.JacksonTester;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -26,7 +25,9 @@ public class BattleControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-    private JacksonTester<BattleResponse> json;
+    private JacksonTester<BattleResponse> jsonBattleResponse;
+    private JacksonTester<FightRequest> jsonFightRequest;
+    private JacksonTester<FightResponse> jsonFightResponse;
 
     @BeforeAll
     public void setUp() {
@@ -66,6 +67,24 @@ public class BattleControllerTest {
                 .get("/battles/play")).andReturn().getResponse();
 
         assertEquals(HttpStatus.OK.value(), response.getStatus());
-        assertEquals(json.write(battleResponse).getJson(), response.getContentAsString());
+        assertEquals(jsonBattleResponse.write(battleResponse).getJson(), response.getContentAsString());
+    }
+
+    @Test
+    public void successfulFightWithCard() throws Exception {
+
+        FightRequest fightRequest = new FightRequest();
+        fightRequest.setSelectedCard(2);
+
+        FightResponse fightResponse = new FightResponse();
+
+        MockHttpServletResponse response = mockMvc.perform(MockMvcRequestBuilders
+                        .post("/battles/fight").contentType(MediaType.APPLICATION_JSON)
+                        .content(jsonFightRequest.write(fightRequest).getJson()))
+                .andReturn().getResponse();
+
+        assertEquals(HttpStatus.OK.value(), response.getStatus());
+
+        assertEquals(jsonFightResponse.write(fightResponse).getJson(), response.getContentAsString());
     }
 }
