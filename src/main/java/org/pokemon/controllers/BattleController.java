@@ -2,17 +2,23 @@ package org.pokemon.controllers;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.pokemon.controllers.dto.*;
+import org.pokemon.adapters.ControllerAdapter;
+import org.pokemon.controllers.dto.BattleResponse;
+import org.pokemon.controllers.dto.FightRequest;
+import org.pokemon.controllers.dto.FightResponse;
+import org.pokemon.services.BattleService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/battles")
 @Slf4j
 @RequiredArgsConstructor
 public class BattleController {
+
+    private final ControllerAdapter controllerAdapter;
+
+    private final BattleService battleService;
 
     @GetMapping
     public void getBattles(){
@@ -22,25 +28,8 @@ public class BattleController {
     @GetMapping("/play")
     public BattleResponse playBattle() {
         log.debug("Play battle");
-        BattleResponse battleResponse = new BattleResponse();
-        PokemonCardResponse card1 = new PokemonCardResponse();
-        card1.setHealthPoints(74);
-        card1.setAttackPoints(41);
-        PokemonCardResponse card2 = new PokemonCardResponse();
-        card2.setHealthPoints(68);
-        card2.setAttackPoints(81);
 
-
-        BattlePlayer humanPlayer = new BattlePlayer();
-        humanPlayer.setPokemonCardResponses(List.of(card1));
-
-        BattlePlayer computerPlayer = new BattlePlayer();
-        computerPlayer.setPokemonCardResponses(List.of(card2));
-
-        battleResponse.setHumanPlayer(humanPlayer);
-        battleResponse.setComputerPlayer(computerPlayer);
-
-        return battleResponse;
+        return controllerAdapter.mapBattle(battleService.play());
     }
 
 
