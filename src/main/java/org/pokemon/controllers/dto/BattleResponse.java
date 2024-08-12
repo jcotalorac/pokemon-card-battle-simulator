@@ -7,7 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class BattleInPlayResponse {
+public class BattleResponse {
 
-    private String winner = "champion";
+    private BattlePlayer humanPlayer;
+    private BattlePlayer computerPlayer;
 }
