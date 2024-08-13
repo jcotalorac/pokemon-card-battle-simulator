@@ -27,14 +27,6 @@ public class BattleServiceImpl implements
     public Battle play() {
         Battle battle = new Battle();
 
-        PokemonCard card1 = new PokemonCard();
-        card1.setHealthPoints(74);
-        card1.setAttack(41);
-
-        PokemonCard card2 = new PokemonCard();
-        card2.setHealthPoints(68);
-        card2.setAttack(81);
-
         List<PokemonCard> humanCards = new ArrayList<>(cardsSize);
         List<PokemonCard> computerCards = new ArrayList<>(cardsSize);
 
