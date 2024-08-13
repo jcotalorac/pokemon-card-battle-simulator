@@ -11,5 +11,8 @@ import lombok.ToString;
 @ToString
 public class FightRequest {
 
-    private Integer selectedCard;
+    private Integer healthPointsHumanSelected;
+    private Integer attackPointsHumanSelected;
+    private Integer healthPointsComputerSelected;
+    private Integer attackPointsComputerSelected;
 }

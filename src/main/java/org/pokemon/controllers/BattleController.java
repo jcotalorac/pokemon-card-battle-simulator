@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.*;
 public class BattleController {
 
     private final ControllerAdapter controllerAdapter;
-
     private final BattleService battleService;
 
     @GetMapping

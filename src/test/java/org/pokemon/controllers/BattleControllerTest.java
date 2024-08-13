@@ -87,7 +87,10 @@ public class BattleControllerTest {
     public void successfulFightWithCard() throws Exception {
 
         FightRequest fightRequest = new FightRequest();
-        fightRequest.setSelectedCard(2);
+        fightRequest.setAttackPointsHumanSelected(20);
+        fightRequest.setHealthPointsHumanSelected(45);
+        fightRequest.setAttackPointsComputerSelected(84);
+        fightRequest.setHealthPointsComputerSelected(38);
 
         FightResponse fightResponse = new FightResponse();
 
