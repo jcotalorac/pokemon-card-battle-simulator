@@ -6,7 +6,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.pokemon.adapters.ControllerAdapter;
 import org.pokemon.controllers.dto.*;
+import org.pokemon.domain.PokemonCard;
 import org.pokemon.services.BattleService;
+import org.pokemon.services.FightService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.json.JacksonTester;
@@ -35,6 +37,9 @@ public class BattleControllerTest {
 
     @MockBean
     private BattleService battleService;
+
+    @MockBean
+    private FightService fightService;
 
     private JacksonTester<BattleResponse> jsonBattleResponse;
     private JacksonTester<FightRequest> jsonFightRequest;
@@ -93,6 +98,12 @@ public class BattleControllerTest {
         fightRequest.setHealthPointsComputerSelected(38);
 
         FightResponse fightResponse = new FightResponse();
+
+        PokemonCard humanPokemonCard = new PokemonCard();
+        PokemonCard computerPokemonCard = new PokemonCard();
+
+        when(controllerAdapter.mapHumanInput(any())).thenReturn(humanPokemonCard);
+        when(controllerAdapter.mapComputerInput(any())).thenReturn(computerPokemonCard);
 
         MockHttpServletResponse response = mockMvc.perform(MockMvcRequestBuilders
                         .post("/battles/fight").contentType(MediaType.APPLICATION_JSON)
