@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Pokemon Battle Simulator</title>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="controller.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="text-center">Welcome to Pokemon Battle Simulator</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 class="text-center">Human Player</h3>
+                    <h4 class="text-center">Cards:</h4>
+                    <div id="human-cards-div">
+                        <h2>Cards</h2>
+                        <table id="human-cards" class="table">
+                            <tr>
+                                <th>Health</th>
+                                <th>Attack</th>
+                            </tr>
+                            <tbody id="human-cards-body">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h3 class="text-center">Computer Player</h3>
+                    <h4 class="text-center">Cards:</h4>
+                    <div id="computer-cards-div">
+                        <h2>Cards</h2>
+                        <table id="computer-cards" class="table">
+                            <tr>
+                                <th>Health</th>
+                                <th>Attack</th>
+                            </tr>
+                            <tbody id="computer-cards-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <form id="play-form">
+                        <input type="submit" value="Play" class="btn btn-default">
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <form id="fight-form">
+                        <div class="form-group">
+                            <label for="human-card-selected">Select your card number:</label>
+                            <input type="text" name="human-card-selected" id="human-card-selected" class="form-control">
+                        </div>
+                        <input type="submit" value="Fight" class="btn btn-default">
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Human selected card</h4>
+                    <table id="human-selected" class="table">
+                        <tr>
+                            <th>Health</th>
+                            <th>Attack</th>
+                        </tr>
+                        <tbody id="human-selected-body"></tbody>
+                    </table>
+
+                </div>
+                <div class="col-md-6">
+                    <h4>Computer selected card</h4>
+                    <table id="computer-selected" class="table">
+                        <tr>
+                            <th>Health</th>
+                            <th>Attack</th>
+                        </tr>
+                        <tbody id="computer-selected-body"></tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="text-center">Fights list</h3>
+                    <table id="fight-list" class="table">
+                        <tr>
+                            <th>Human Health</th>
+                            <th>Human Attack</th>
+                            <th>Computer Attack</th>
+                            <th>Computer Attack</th>
+                        </tr>
+                        <tbody id="fight-list-body"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <script src="js/bootstrap.min.js"></script>
+    </body>
+</html>
