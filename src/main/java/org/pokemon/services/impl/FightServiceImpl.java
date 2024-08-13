@@ -3,7 +3,9 @@ package org.pokemon.services.impl;
 import org.javatuples.Pair;
 import org.pokemon.domain.PokemonCard;
 import org.pokemon.services.FightService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class FightServiceImpl implements FightService {
 
     @Override
