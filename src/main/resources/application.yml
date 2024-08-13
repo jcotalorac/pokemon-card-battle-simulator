@@ -2,3 +2,9 @@ logging:
   level:
     org:
       pokemon: "DEBUG"
+
+cardsSize: 4
+
+pokemon:
+  api:
+    url: "https://api.pokemontcg.io/v2/cards?select=id,name,hp,types,attacks&page=1&pageSize=50"

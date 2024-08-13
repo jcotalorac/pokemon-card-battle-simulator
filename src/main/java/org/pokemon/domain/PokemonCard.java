@@ -5,6 +5,6 @@ import lombok.Data;
 @Data
 public class PokemonCard {
 
-    private Integer healthPoints = 0;
+    private Integer healthPoints;
     private Integer attack;
 }

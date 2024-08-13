@@ -1,0 +1,14 @@
+package org.pokemon.controllers.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class BattleResponse {
+
+    private BattlePlayer humanPlayer;
+    private BattlePlayer computerPlayer;
+}
