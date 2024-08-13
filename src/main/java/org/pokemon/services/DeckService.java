@@ -1,0 +1,11 @@
+package org.pokemon.services;
+
+import org.pokemon.domain.PokemonCard;
+
+import java.util.List;
+
+@FunctionalInterface
+public interface DeckService {
+
+    List<PokemonCard> getAvailableCards();
+}

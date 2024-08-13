@@ -8,6 +8,8 @@ import org.mapstruct.Named;
 import org.pokemon.domain.PokemonCard;
 import org.pokemon.tcgapi.dto.PokemonAPICard;
 
+import java.util.List;
+
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface ApiAdapter {
 
@@ -19,4 +21,6 @@ public interface ApiAdapter {
     default String firstAttackDamage(PokemonAPICard pokemonAPICard) {
         return pokemonAPICard.getAttacks().get(0).getDamage();
     }
+
+    List<PokemonCard> mapCards(List<PokemonAPICard> pokemonAPICards);
 }
