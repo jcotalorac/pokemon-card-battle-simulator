@@ -5,6 +5,7 @@ import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;
 import org.pokemon.controllers.dto.BattlePlayer;
 import org.pokemon.controllers.dto.BattleResponse;
+import org.pokemon.controllers.dto.FightRequest;
 import org.pokemon.controllers.dto.PokemonCardResponse;
 import org.pokemon.domain.Battle;
 import org.pokemon.domain.Player;
@@ -24,5 +25,13 @@ public interface ControllerAdapter {
     BattlePlayer mapPlayer(Player player);
 
     BattleResponse mapBattle(Battle battle);
+
+    @Mapping(target = "healthPoints", source = "healthPointsHumanSelected")
+    @Mapping(target = "attack", source = "attackPointsHumanSelected")
+    PokemonCard mapHumanInput(FightRequest fightRequest);
+
+    @Mapping(target = "healthPoints", source = "healthPointsComputerSelected")
+    @Mapping(target = "attack", source = "attackPointsComputerSelected")
+    PokemonCard mapComputerInput(FightRequest fightRequest);
 
 }

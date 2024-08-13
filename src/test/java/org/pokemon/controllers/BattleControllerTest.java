@@ -84,7 +84,7 @@ public class BattleControllerTest {
     }
 
     @Test
-    public void successfulFightWithCard() throws Exception {
+    public void successfulFightWithCards() throws Exception {
 
         FightRequest fightRequest = new FightRequest();
         fightRequest.setAttackPointsHumanSelected(20);
