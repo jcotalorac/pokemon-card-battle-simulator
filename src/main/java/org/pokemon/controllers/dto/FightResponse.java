@@ -7,5 +7,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class FightResponse {
 
+    private String humanHealth;
+    private String humanAttack;
+    private String computerHealth;
+    private String computerAttack;
+
     private boolean result;
 }
