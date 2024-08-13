@@ -9,6 +9,7 @@ import org.pokemon.domain.PokemonCard;
 import org.pokemon.tcgapi.dto.PokemonAPICard;
 
 import java.util.List;
+import java.util.Objects;
 
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface ApiAdapter {
@@ -19,7 +20,15 @@ public interface ApiAdapter {
 
     @Named("firstDamage")
     default String firstAttackDamage(PokemonAPICard pokemonAPICard) {
-        return pokemonAPICard.getAttacks().get(0).getDamage();
+        String damage = pokemonAPICard.getAttacks().get(0).getDamage();
+        if (Objects.nonNull(damage)) {
+            String digitPart = damage.replaceAll("\\D+", "");
+            if (digitPart.isEmpty()) {
+                return "0";
+            }
+            return digitPart;
+        }
+        return "0";
     }
 
     List<PokemonCard> mapCards(List<PokemonAPICard> pokemonAPICards);
