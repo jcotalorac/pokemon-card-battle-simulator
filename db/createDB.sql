@@ -1,6 +1,9 @@
 CREATE TABLE fight (
 	id serial PRIMARY KEY,
-	health_human INTEGER NOT NULL
+	human_health INTEGER NOT null,
+	human_attack INTEGER not null,
+	computer_health INTEGER not null,
+	computer_attack INTEGER not NULL
 );
 
 CREATE SEQUENCE fight_seq
@@ -10,3 +13,6 @@ CREATE SEQUENCE fight_seq
     NO MINVALUE
     NO MAXVALUE
     CACHE 1;
+
+GRANT USAGE, SELECT ON SEQUENCE fight_seq TO battlesimulator;
+GRANT ALL PRIVILEGES ON TABLE fight TO battlesimulator;
