@@ -11,6 +11,6 @@ pokemon:
 
 spring:
   config:
-    import: db.properties
+    import: "optional:db.properties"
   datasource:
     driverClassName: org.postgresql.Driver
