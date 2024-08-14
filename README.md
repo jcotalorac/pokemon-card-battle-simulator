@@ -88,6 +88,9 @@ It was possible to hide database connection parameters from code repository with
 
 Lombok Slf4j is the library used for logging. Default level is debug.
 
+### CORS Handling
+
+Handling Cross Domain in application allows UI to access endpoints
 
 ### Unit tests
 
@@ -106,6 +109,7 @@ Possible enhancements for application could be:
 - Implement use of swagger or similar to document API
 - In favour of versatility, it's possible to execute application with a configuration profile.
 - Different profiles allow different debug levels
+- Could be good idea to have a gateway to hide real URI endpoints of backend
 
 ## Tech Stack
 
